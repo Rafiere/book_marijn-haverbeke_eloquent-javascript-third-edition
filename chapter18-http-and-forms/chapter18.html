@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chapter 18</title>
+</head>
+<body>
+
+<!-- Os formulários são elementos que enviam informações para um determinado
+servidor. -->
+
+<!-- Quando clicarmos no botão "Send", a seguinte requisição será enviada: -->
+
+<!--
+    GET /example/message.html?name=Jean&message=Yes%3F HTTP/1.1
+-->
+
+<form>
+    <p>Name: <input type="text" name="name"></p>
+    <p>Name: <br><textarea type="text" name="message"></textarea></p>
+    <p><button type="submit">Send</button></p>
+</form>
+
+<script>
+    /* O "fetch()" é uma função que permite o envio de requisições pelo JS. */
+
+    fetch("example/data.txt").then(response => {
+        console.log(response.status)
+
+        console.log(response.headers.get("Content-Type"))
+    })
+
+    /* Podemos ativar o foco em um elemento com o "focus()" e remover o foco
+    * em um elemento com o "blur()", por exemplo: */
+
+    document.querySelector("input").focus();
+    console.log(document.activeElement.tagName) //INPUT
+
+    document.querySelector("input").blur();
+    console.log(document.activeElement.tagName) //BODY
+
+</script>
+
+</body>
+</html>
